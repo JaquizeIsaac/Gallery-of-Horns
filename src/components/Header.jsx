@@ -1,4 +1,4 @@
-unction Header () {
+function Header () {
 
     return (
         <header>
