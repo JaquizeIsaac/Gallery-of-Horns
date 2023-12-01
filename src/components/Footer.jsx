@@ -1,8 +1,7 @@
 function Footer (props) {
-
     return (
         <footer>
-            <p>&copy; {props.title}</p>
+            <p>{{props.copyright}}</p>
         </footer>
     )
 }
