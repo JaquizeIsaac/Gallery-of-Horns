@@ -1,10 +1,15 @@
-function Header () {
+import { NavbarBrand } from "react-bootstrap";
 
-    return (
-        <header>
-            <h1>Gallery of Horns</h1>
-        </header>
-    )
+import Navbar from'react-bootstrap/Navbar';
+
+function Header(props) {
+  return (
+    <Navbar bg="dark" variant="dark">
+      <Navbar.Brand>
+        <h1>{props.title}</h1>
+      </Navbar.Brand>
+    </Navbar>
+  );
 }
 
-export default Header
+export default Header;

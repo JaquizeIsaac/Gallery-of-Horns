@@ -1,29 +1,24 @@
-import React from "react";
-import Modal from "react-bootstrap/Modal";
-import Button from "react-bootstrap/Button";
-import Card from "react-bootstrap/Card";
-
-function SelectedBeast(props) {
-    const handleClose = () => {
-        props.handleClose();
-    };
-
+import Image from 'react-bootstrap/Image';
+import { useState } from 'react';
+import { FaHeart } from 'react-icons/fa';
+export default function HornedBeast(props) {
+    const [status, setStatus] = useState("like");
+    const [favoriteCount, setFavoriteCount] = useState(0);
+    function handleClick() {
+        if (status === "like") {
+            setFavoriteCount(favoriteCount + 1);
+        }
+        props.displayModal(props.title);
+            
+    }
     return (
-        <Modal show={props.show} onHide={handleClose}>
-            <Modal.Header closeButton>
-                <Modal.Title>{props.title}</Modal.Title>
-            </Modal.Header>
-            <Modal.Body>
-                <Card.Img src={props.image_url} alt="Horned Beast" rounded="true" fluid="true" />
-                <Card.Text>{props.description}</Card.Text>
-            </Modal.Body>
-            <Modal.Footer>
-                <Button variant="secondary" onClick={handleClose}>
-                    Close
-                </Button>
-            </Modal.Footer>
-        </Modal>
+        <div onClick={handleClick}>
+            <Image src={props.image_url} alt="" rounded fluid></Image>
+            <h3>{status}{" "}
+                <span>
+                    <FaHeart /> {favoriteCount}
+                </span>
+            </h3>
+        </div>
     );
 }
-
-export default SelectedBeast;
